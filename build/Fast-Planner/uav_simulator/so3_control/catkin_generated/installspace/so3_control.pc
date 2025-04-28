@@ -1,0 +1,8 @@
+prefix=/home/ubuntu20/moving_car/install
+
+Name: so3_control
+Description: Description of so3_control
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lSO3Control -lso3_control_nodelet
+Requires: geometry_msgs nav_msgs trajectory_msgs

@@ -1,0 +1,27 @@
+<launch>
+  <!-- 无人车初始位置和运动参数（全局参数） -->
+  <param name="/ugv/init_x" value="0.0" />
+  <param name="/ugv/init_y" value="0.0" />
+  <param name="/ugv/init_z" value="0.0" />
+  <param name="/ugv/init_yaw" value="0.0" />
+  <param name="/ugv/init_velocity" value="0.3" /> <!-- 默认0.3m/s -->
+  <param name="/ugv/init_direction" value="0" /> <!-- 默认沿x轴正方向，修改方向为1.5707963267948966（沿Y轴正方向）-->
+  <param name="/ugv/publish_rate" value="50.0" /> <!-- 50Hz -->
+  <param name="map_size" value="50.0" /> <!-- 地图边界参数 -->
+
+  <!-- 加载机器人模型参数 -->
+  <param name="robot_description" textfile="$(find simple_ugv_sim)/urdf/simple_ugv.urdf" />
+
+  <!-- 启动机器人状态发布节点 -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+    <param name="publish_frequency" value="50.0" />
+  <!-- 启动我们的运动控制节点 -->
+  </node>
+
+  <node name="ugv_motion_node" pkg="simple_ugv_sim" type="ugv_motion_node" output="screen" />
+  
+  <!-- 启动RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find simple_ugv_sim)/rviz/ugv_config.rviz" />
+  
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="world_broadcaster" args="0 0 0 0 0 0 world map" /> -->
+</launch>

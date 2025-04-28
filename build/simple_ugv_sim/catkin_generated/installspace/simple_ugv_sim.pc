@@ -1,0 +1,8 @@
+prefix=/home/ubuntu20/moving_car/install
+
+Name: simple_ugv_sim
+Description: Description of simple_ugv_sim
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lsimple_ugv_sim
+Requires: roscpp rviz tf2 tf2_ros urdf xacro message_runtime

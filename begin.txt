@@ -1,0 +1,5 @@
+source devel/setup.bash && roslaunch plan_manage rviz.launch
+
+source devel/setup.bash && roslaunch plan_manage kino_replan.launch
+
+roslaunch plan_manage rviz.launch 

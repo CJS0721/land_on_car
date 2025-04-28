@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot name="simple_ugv">
+  <!-- 基座链接 -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.6 0.4 0.1"/> <!-- 底座的长、宽、高 -->
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+      </material>
+      <origin xyz="0 0 0.05"/>
+    </visual>
+  </link>
+
+  <!-- 前左轮链接 -->
+  <link name="front_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/> <!-- 轮子的半径和长度 -->
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+      <origin rpy="1.57075 0 0" xyz="0 0 0"/> 
+    </visual>
+  </link>
+
+  <!-- 前右轮链接 -->
+  <link name="front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+      <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <!-- 后左轮链接 -->
+  <link name="rear_left_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+      <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <!-- 后右轮链接 -->
+  <link name="rear_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.05"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+      <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+    </visual>
+  </link>
+
+  <!-- 前左轮关节 -->
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.2 0.225 -0.05"/> <!-- 注意z轴为负，将轮子放在车身下方 -->
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- 前右轮关节 -->
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.2 -0.225 -0.05"/> <!-- 注意y轴为负，放在右侧 -->
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- 后左轮关节 -->
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="-0.2 0.225 -0.05"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- 后右轮关节 -->
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="-0.2 -0.225 -0.05"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+</robot>
