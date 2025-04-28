@@ -1,5 +1,5 @@
 # 说明
-编译可能需要编两次，报错的地方和修改的地方无关；
+编译可能需要编两次，报错的地方和修改的地方无关；source devel/setup.bash && roslaunch plan_manage kino_replan.launch 后 quadrotor_simulator_so3 节点会die ，没有任何的四旋翼odom输出
 主要修改了fast-planner的控制部分：
 
 1、 src/Fast-Planner/uav_simulator/so3_quadrotor_simulator/src/quadrotor_simulator_so3.cpp 中的 **函数getControl()** 在订阅了so3_cmd话题的主程序中计算并输出 四旋翼**输入力矩、螺旋桨转速**文件  
