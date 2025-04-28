@@ -5,7 +5,7 @@
 
 2、 读取生成的轨迹并初步计算so3_cmd : src/Fast-Planner/uav_simulator/so3_control/src/so3_control_nodelet.cpp 中的 **函数position_cmd_callback()** 嵌套 **函数 publishSO3Command()** 实现读取 规划器生成的轨迹信息 const quadrotor_msgs::PositionCommand::ConstPtr& cmd （此处我增加了MPC所需的预测区间内的状态数组）  
 
-3、 /home/ubuntu20/moving_car/src/Fast-Planner/fast_planner/plan_manage/src/traj_server.cpp 中 在代码行 pos_cmd_pub.publish(cmd); 之前增加了MPC所需的预测区间内状态的赋值 ；  
+3、 /home/ubuntu20/moving_car/src/Fast-Planner/fast_planner/plan_manage/src/traj_server.cpp 中 在代码行 pos_cmd_pub.publish(cmd); 之前增加了MPC所需的预测区间内状态的赋值；
 
 4、 除上述修改外，还在  src/Fast-Planner/uav_simulator/Utils/quadrotor_msgs/msg/**SO3Command.msg** 和 **PositionCommand.msg**，注意是 **quadrotor_msgs** 目录下的，另一个目录下有个同名文件，没做修改，不知道有什么用src/Fast-Planner/uav_simulator/Utils/**multi_map_server**/quadrotor_msgs/msg/SO3Command.msg 
 
