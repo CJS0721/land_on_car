@@ -1,8 +1,0 @@
-prefix=/home/ubuntu20/moving_car/install
-
-Name: cmake_utils
-Description: Description of cmake_utils
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

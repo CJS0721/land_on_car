@@ -1,8 +1,0 @@
-prefix=/home/ubuntu20/moving_car/install
-
-Name: odom_visualization
-Description: Description of odom_visualization
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
